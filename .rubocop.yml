@@ -4,20 +4,26 @@ AllCops:
     - "db/**/*"
     - "bin/*" 
     - "config/**/*"
-    - 'Guardfile'
-    - 'Rakefile'
-    - 'node_modules/**/*'
+    - "Guardfile"
+    - "Rakefile"
+    - "node_modules/**/*"
 
   DisplayCopNames: true
 
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
+  Include:
+    - "app/controllers/*"
+    - "app/models/*"
   Max: 20
 Metrics/AbcSize:
+  Include:
+    - "app/controllers/*"
+    - "app/models/*"
   Max: 50
 Metrics/ClassLength:
-  Max: 160
+  Max: 150
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30

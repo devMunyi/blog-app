@@ -50,8 +50,10 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
-
+In order to run this project you need followed installed on your computer:
+- Ruby v3+, 
+- Rails v7+ 
+- PostgreSQL
 - An IDE e.g [Visual studio code](https://code.visualstudio.com/).
 - [A terminal](https://code.visualstudio.com/docs/terminal/basics).
 

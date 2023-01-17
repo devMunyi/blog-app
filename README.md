@@ -19,7 +19,6 @@
 - [📝 License](#license)
 
 # 📖 Blog App <a name="about-project"></a>
-<img src="https://media3.giphy.com/media/35SxnHMxcD4exVPXkG/giphy.gif"/>
 
 > The Blog app will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
@@ -30,8 +29,8 @@
 
 <details>
   <ul>
-    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
-    <li><a href="https://www.ruby-lang.org/en/">SQL</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby on Rails</a></li>
+    <li><a href="https://www.ruby-lang.org/en/">PostgreSQL</a></li>
     <li><a href="https://www.ruby-lang.org/en/">RSpec</a></li>
   </ul>
 </details>

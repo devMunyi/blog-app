@@ -5,11 +5,13 @@ class Post < ApplicationRecord
 
   after_save :increment_author_posts_counter
 
-  def increment_author_posts_counter
-    author.increment!(:posts_counter)
-  end
-
   def five_recent_comments
     comments.order(created_at: :desc).limit(5)
+  end
+
+  private
+
+  def increment_author_posts_counter
+    author.increment!(:posts_counter)
   end
 end

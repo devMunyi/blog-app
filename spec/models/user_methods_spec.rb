@@ -7,18 +7,18 @@ RSpec.describe User, type: :model do
     posts_counter: 0
   )
 
-  7.times.collect do 
+  7.times.collect do
     Post.create(
       title: 'my title',
-      text: 'Hello World!', 
+      text: 'Hello World!',
       comments_counter: 1,
-      likes_counter: 0, 
+      likes_counter: 0,
       author_id: user.id
     )
-  end 
+  end
 
-  context '#three_recent_posts' do 
-    it 'should return three recent posts' do 
+  context '#three_recent_posts' do
+    it 'should return three recent posts' do
       expect(user.three_recent_posts.length).to eql(3)
     end
 
@@ -27,4 +27,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-

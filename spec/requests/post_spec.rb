@@ -20,7 +20,7 @@ RSpec.describe Post, type: :request do
   end
 
   context 'GET #show' do
-    before(:example) { get user_post_path(1, 1) } # get(:index)
+    before(:example) { get user_post_path(1, 1) } # get(:show)
 
     it 'is successful' do
       expect(response).to have_http_status(:ok)

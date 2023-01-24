@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe Post, type => :request do
+RSpec.describe Post, type: :request do
   context 'GET #index' do
+    before(:example) { get user_posts_path(1) } # get(:index)
+
     it 'is successful' do
       expect(response).to have_http_status(:ok)
     end
@@ -18,6 +20,8 @@ RSpec.describe Post, type => :request do
   end
 
   context 'GET #show' do
+    before(:example) { get user_post_path(1, 1) } # get(:index)
+
     it 'is successful' do
       expect(response).to have_http_status(:ok)
     end

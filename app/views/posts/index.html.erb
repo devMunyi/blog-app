@@ -1,1 +1,33 @@
-<h2>List of posts for a given author goes here</h2>
+<div class='container'>
+  <div class='user-info'>
+    <div class='col-1'> <img src='http://placeimg.com/640/480/any' alt='<%= @user.name %>'></div> 
+    <div class='col-2'>
+      <h3><%= @user.name %><h3>
+      <p>Number of posts: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+
+  <ul>
+    <% @posts.each do |post| %>
+        <li class='post-info'>
+          <h4 class='post-title'><%= link_to post.title, user_post_path(@user, post) %></h4>
+          <p class='post-body'><%= post.text %></p>
+          <div class='post-footer'>
+            <span>Comments: <%= post.comments_counter %> </span>
+            <span>&nbsp;</span>
+            <span> Likes: <%= post.likes_counter %></span>
+          </div>
+
+          <ul class='comments'> 
+            <%post.five_recent_comments.each do |comment| %>
+              <li><%= comment.author.name %>: <%= comment.text %></li>
+            <% end %>
+          </ul>
+        </li>
+    <% end %>
+  <ul>
+
+  <div class='footer'>
+    Pagination
+  </div>
+</div>

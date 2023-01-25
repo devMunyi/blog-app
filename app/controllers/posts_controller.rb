@@ -10,6 +10,8 @@ class PostsController < ApplicationController
     @post = Post.where(id: post_id, author_id:).order('id DESC').first
   end
 
+  private
+
   def posted_by
     params[:user_id]
   end

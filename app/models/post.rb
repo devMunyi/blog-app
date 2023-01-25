@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   after_save :increment_author_posts_counter
 
   def five_recent_comments
-    comments.order(created_at: :desc).limit(5)
+    comments.order(id: :desc).limit(5)
   end
 
   private

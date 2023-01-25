@@ -59,6 +59,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
 
   gem 'rails-controller-testing'
+
+  # gem to manage environment variables
+  gem 'dotenv-rails'
 end
 
 group :development do

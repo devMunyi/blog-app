@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post saved successfully'
-      redirect_to user_posts_path(current_user)
+      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
     else
       flash.now[:error] = 'Error: Post could not be saved'
       render :new, status: :unprocessable_entity

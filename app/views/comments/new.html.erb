@@ -1,0 +1,24 @@
+<div class='container comment mt-5 mb-5'>
+
+  <div class='comment-wrapper card'>
+    <div class='card card-1 mb-4'>
+        <%= render partial: 'shared/post', locals: {post: @post} %>
+    </div>
+    <div class='d-flex justify-content-center align-items-center'>
+
+      <%= form_with model: @comment, url: user_post_comments_path, class: 'form card p-4' do |form| %>
+        <h2 class='text-center border-bottom'>New Comment</h2>
+        <div class='mb-4'>
+          <%= form.text_area :text, class: 'form-control', placeholder: 'Write your comment here...', required: true %>
+          <% @comment.errors.full_messages_for(:text).each do |message| %>
+            <div class='error'><%= message %></div>
+          <% end %>
+        </div>
+        <div class='d-grid'>
+          <%= form.submit 'Comment', class: 'btn btn-gradient btn-primary block' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

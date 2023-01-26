@@ -1,6 +1,13 @@
 <div class='container mt-3 mb-5'>
   <%= render 'shared/user', user: @user %>
 
+  <div class='row'>
+    <div class='d-flex justify-content-between align-items-center mt-4'>
+      <h5>Posts <small>List</small></h5>
+      <%= link_to 'Add New', new_user_post_url(@user), class: 'btn btn-primary' %>
+    </div>
+  </div>
+
   <% @posts.each do |post| %>
     <div class='row card pt-2 pb-2 mb-3 mt-4'>
       <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
@@ -10,8 +17,9 @@
         <span> Likes: <%= post.likes_counter %></span>
       </div>
 
-      <div class='container card-body border-top'> 
-        <h5>Comments</h5>
+      <div class='container card-body border-top'>
+        <h5>Comments List</h5>
+
         <%post.five_recent_comments.each do |comment| %>
           <div><%= comment.author.name %>: <%= comment.text %></div>
         <% end %>

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     author_id = posted_by
     @user = User.find(author_id)
-    @posts = Post.where(author_id:)
+    @posts = Post.where(author_id:).order('created_at DESC')
   end
 
   def show

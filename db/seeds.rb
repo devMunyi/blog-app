@@ -1,8 +1,8 @@
-User.create(name: "John Doe", photo: "https://example.com/john_doe.jpg", bio: "Just a regular guy who likes to write.")
-User.create(name: "Jane Smith", photo: "https://example.com/jane_smith.jpg", bio: "Lover of books and coffee.")
-User.create(name: "Bob Johnson", photo: "https://example.com/bob_johnson.jpg", bio: "Outdoor enthusiast and amateur photographer.")
-User.create(name: "Samantha Brown", photo: "https://example.com/samantha_brown.jpg", bio: "Food blogger and home cook.")
-User.create(name: "Michael Davis", photo: "https://example.com/michael_davis.jpg", bio: "Tech enthusiast and coding hobbyist.")
+User.create(name: "John Doe", photo: "user1.jpg", bio: "Just a regular guy who likes to write.")
+User.create(name: "Jane Smith", photo: "user2.jpg", bio: "Lover of books and coffee.")
+User.create(name: "Bob Johnson", photo: "user3.jpg", bio: "Food blogger and home cook.")
+User.create(name: "Michael Davis", photo: "user4.jpg", bio: "Tech enthusiast and coding hobbyist.")
+User.create(name: "Samantha Doe", photo: "user5.jpg", bio: "Pianist enthusiast and tech hobbyist.")
 
 users = User.all
 

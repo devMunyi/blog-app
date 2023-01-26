@@ -1,0 +1,29 @@
+.col-md-4,
+.col-md-8 {
+  /* border: 2px solid goldenrod; */
+  height: 200px;
+}
+
+.img-fluid {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.col-md-8 {
+  position: relative;
+}
+
+.col-md-8 p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.bs {
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0, rgba(27, 31, 35, 0.15) 0 0 0 1px;
+  border-radius: 5px;
+}

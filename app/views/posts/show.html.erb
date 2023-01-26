@@ -1,20 +1,19 @@
-<div class='container'>
-  <div class='post-info'>
-    <h4 class='post-title'><%= @post.title %> <%= @post.author.name %></h4>
-    <div class='top-comments-likes'>
+<div class='container mb-5 mt-3'>
+  <div class='row card pt-2 pb-2'>
+    <h4 class='lead'><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h4>
+    <div class='d-flex justify-content-end gap-2'>
       <span>Comments: <%= @post.comments_counter %> </span>
-      <span>&nbsp;</span>
       <span> Likes: <%= @post.likes_counter %></span>
     </div>
-    <p class='post-body'><%= @post.text %></p>
-    <ul class='comments'> 
+    <p class=''><%= @post.text %></p>
+    <div class='card-body border-top'> 
       <%@post.comments.each do |comment| %>
         <li><%= comment.author.name %>: <%= comment.text %></li>
       <% end %>
-    </ul>
+    </div>
   </div>
 
-  <div class='footer'>
+  <div class='d-flex justify-content-center align-items-center'>
     <%= link_to 'Back to all', user_posts_path(@user, @post) %>
   </div>
 </div>

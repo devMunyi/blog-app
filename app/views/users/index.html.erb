@@ -1,13 +1,6 @@
-<div class='container'>
+<div class='container user mb-5 mt-3'>
   <h1>Users</h1>
-
-  <ul>
     <% @users.each do |user| %>
-       <a href="<%= user_path(user) %>">
-        <li class='user-info'>
-          <%= render 'shared/user', user: user%>
-        </li>
-      </a>
+      <%= render 'shared/user', user: user%>
     <% end %>
-  <ul>
 <div>

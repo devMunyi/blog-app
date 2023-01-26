@@ -1,33 +1,25 @@
-<div class='container'>
-  <div class='user-info'>
-    <div class='col-1'> <img src='http://placeimg.com/640/480/any' alt='<%= @user.name %>'></div> 
-    <div class='col-2'>
-      <h3><%= @user.name %><h3>
-      <p>Number of posts: <%= @user.posts_counter %></p>
+<div class='container mt-3 mb-5'>
+  <%= render 'shared/user', user: @user %>
+
+  <% @posts.each do |post| %>
+    <div class='row card pt-2 pb-2 mb-3 mt-4'>
+      <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
+      <p><%= post.text %></p>
+      <div class='d-flex justify-content-end gap-2'>
+        <span>Comments: <%= post.comments_counter %> </span>
+        <span> Likes: <%= post.likes_counter %></span>
+      </div>
+
+      <div class='container card-body border-top'> 
+        <h5>Comments</h5>
+        <%post.five_recent_comments.each do |comment| %>
+          <div><%= comment.author.name %>: <%= comment.text %></div>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
-  <ul>
-    <% @posts.each do |post| %>
-        <li class='post-info'>
-          <h4 class='post-title'><%= link_to post.title, user_post_path(@user, post) %></h4>
-          <p class='post-body'><%= post.text %></p>
-          <div class='post-footer'>
-            <span>Comments: <%= post.comments_counter %> </span>
-            <span>&nbsp;</span>
-            <span> Likes: <%= post.likes_counter %></span>
-          </div>
-
-          <ul class='comments'> 
-            <%post.five_recent_comments.each do |comment| %>
-              <li><%= comment.author.name %>: <%= comment.text %></li>
-            <% end %>
-          </ul>
-        </li>
-    <% end %>
-  <ul>
-
-  <div class='footer'>
-    Pagination
+  <div class='d-flex justify-content-center align-items-center'>
+    <p>Pagination</p>
   </div>
 </div>

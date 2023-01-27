@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   def index
     author_id = posted_by
     @user = User.find(author_id)
-    @posts = Post.where(author_id:).order('created_at DESC')
+    @pagy, @posts = pagy(Post.where(author_id:).order('created_at DESC'), items: 5)
+    @count = Post.where(author_id:).count
   end
 
   def show

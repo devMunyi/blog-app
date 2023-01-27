@@ -1,4 +1,11 @@
 <div class='container mb-5 mt-5'>
+  <% if flash[:success] %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong><%= flash[:success] %></strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+
   <div class='row card pt-2 pb-2'>
     <h4 class='lead'><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h4>
     <div class='d-flex justify-content-end gap-2'>

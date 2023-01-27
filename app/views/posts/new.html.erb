@@ -1,0 +1,25 @@
+<div class='container mt-5 mb-5'>
+  <div class='d-flex justify-content-center align-items-center'>
+    <%= form_with model: @post, url: user_posts_path, class: 'form card p-4' do |form| %>
+      <h1 class='text-center border-bottom'>New Post</h1>
+      <div class='mb-4'>
+        <%= form.label :title, class: 'form-label' %>
+        <%= form.text_field :title, class: 'form-control', required: true %>
+        <% @post.errors.full_messages_for(:title).each do |message| %>
+          <div class='error'><%= message %></div>
+        <% end %>
+      </div>
+
+      <div class='mb-4'>
+        <%= form.label :text, class: 'form-label' %>
+        <%= form.text_area :text, class: 'form-control', required: true %>
+        <% @post.errors.full_messages_for(:text).each do |message| %>
+          <div class='error'><%= message %></div>
+        <% end %>
+      </div>
+      <div class='d-grid'>
+        <%= form.submit 'Create', class: 'btn btn-gradient btn-primary block' %>
+      </div>
+    <% end %>
+  </div>
+</div>

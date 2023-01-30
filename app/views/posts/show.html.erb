@@ -6,6 +6,7 @@
     </div>
   <% end %>
 
+  <h2 class='text-muted ml-0 pl-0'>Post Details</h2>
   <div class='row card pt-2 pb-2'>
     <h4 class='lead'><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h4>
     <div class='d-flex justify-content-end gap-2'>

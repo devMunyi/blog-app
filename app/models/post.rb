@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
   # associations
   belongs_to :author, class_name: 'User'
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   # validations
   validates :title, presence: true, length: { maximum: 250 }

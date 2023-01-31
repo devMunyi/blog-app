@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   def index
     author_id = posted_by
     @user = User.find(author_id)
-    @pagy, @posts = pagy(@user.posts.includes(:comments).order('comments.id DESC').limit(5))
-    # @pagy, @posts = pagy(@user.posts)
+    @pagy, @posts = pagy(@user.posts.includes(:comments).order('posts.id DESC').order('comments.id DESC').limit(5),
+                         items: 10)
   end
 
   def show

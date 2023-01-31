@@ -1,9 +1,9 @@
-<div class='row bs p-2 mt-3'>
+<div class='row bs p-2 mt-3' id="user-<%= user.id %>">
   <div class='col-md-4'>
     <%= image_tag user.photo, class: "img-fluid", alt: user.name %>
   </div>
   <div class='col-md-8'>
-    <h3><%= link_to user.name, user_path(user)  %><h3>
+    <h3><%= link_to user.name, user_path(user), id: "user-#{user.name}-#{user.id}" %><h3>
     <p class='text-muted'>Number of posts: <%= user.posts_counter =%></p>
   </div>
 </div>

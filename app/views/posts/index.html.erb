@@ -1,9 +1,9 @@
 <div class='container mt-3 mb-5'>
   <%= render 'shared/user', user: @user %>
-
+  
   <div class='row'>
     <div class='d-flex justify-content-between align-items-center mt-4'>
-      <h5>Posts <small>List <%= @posts.count %> / <%= @count %></small></h5>
+      <h5>Posts List</h5>
       <%= link_to 'Add New', new_user_post_url(@user), class: 'btn btn-primary' %>
     </div>
   </div>
@@ -20,15 +20,17 @@
       <div class='container card-body border-top'>
         <h5>Comments List</h5>
 
-        <%post.five_recent_comments.each do |comment| %>
+        <%post.comments.each do |comment| %>
           <div><%= comment.author.name %>: <%= comment.text %></div>
         <% end %>
       </div>
     </div>
   <% end %>
 
-  <div class='d-flex justify-content-center align-items-center'>
+  <div class='d-flex pagination justify-content-center align-items-center'>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-    <%== pagy_bootstrap_nav(@pagy) %>
+    <% if @posts.count > 10 %>
+      <%== pagy_bootstrap_nav(@pagy) %>
+    <% end %>
   </div>
 </div>

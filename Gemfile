@@ -68,6 +68,9 @@ group :development, :test do
 
   # gem to manage environment variables
   gem 'dotenv-rails'
+
+  # gem to manage user authentication
+  gem 'devise'
 end
 
 group :development do

@@ -27,8 +27,10 @@
     </div>
   <% end %>
 
-  <div class='d-flex justify-content-center align-items-center'>
+  <div class='d-flex pagination justify-content-center align-items-center'>
     <%# Note the double equals sign "==" which marks the output as trusted and html safe: %>
-    <%== pagy_bootstrap_nav(@pagy) %>
+    <% if @posts.count > 10 %>
+      <%== pagy_bootstrap_nav(@pagy) %>
+    <% end %>
   </div>
 </div>

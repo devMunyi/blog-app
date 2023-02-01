@@ -71,6 +71,9 @@ group :development, :test do
 
   # gem to manage user authentication
   gem 'devise'
+
+  # gem to handle email confirmation on development server
+  gem 'letter_opener'
 end
 
 group :development do

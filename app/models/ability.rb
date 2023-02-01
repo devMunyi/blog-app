@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -7,7 +5,7 @@ class Ability
     # allow all users to read all posts and comments
     can :read, Post
     can :read, Comment
-    
+
     if user.role == 'admin'
       can :manage, :all
     elsif user

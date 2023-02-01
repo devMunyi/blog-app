@@ -29,6 +29,11 @@ form {
   border-radius: 5px;
 }
 
+.no-bs form {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
 .comment .card-1 {
   width: 50% !important;
   margin: auto auto;
@@ -41,7 +46,7 @@ form {
   margin: auto auto;
 }
 
-form {
+.auth form {
   padding: 1.5rem 2rem;
 }
 
@@ -62,4 +67,30 @@ form {
   transition: all;
   color: blue;
   background-color: gray;
+}
+
+.user-nav {
+  text-decoration: none;
+}
+
+.user-img {
+  object-fit: fill !important;
+}
+
+.add-comment-btn {
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #007bff;
+}
+
+.add-comment-btn:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.add-comment-btn:focus,
+.add-comment-btn.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }

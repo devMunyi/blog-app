@@ -12,8 +12,11 @@
   </head>
 
   <body>
-    <div class='container-fluid px-5 d-flex justify-content-end bg-dark text-white user'>
+    <div class='container-fluid px-5 d-flex justify-content-end align-items-center bg-dark text-white user gap-2'>
       <% if user_signed_in? %>
+      <div class='d-flex align-items-center'>
+        <p>Welcome</p> <%= link_to current_user.name, user_path(current_user), class:'user-nav' %>
+      </div>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "custom-button" %>
       <% else %>
         <%= button_to 'Sign in', new_user_session_path , class: "custom-button" %>

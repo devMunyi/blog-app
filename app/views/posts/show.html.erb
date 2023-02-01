@@ -10,8 +10,16 @@
   <div class='row card pt-2 pb-2'>
     <h4 class='lead'><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h4>
     <div class='d-flex justify-content-end gap-2'>
-      <span>Comments: <%= @post.comments_counter %> </span>
-      <span> Likes: <%= @post.likes_counter %></span>
+      <% if can? :destroy, post %>
+        <span class='pb-2'>
+          <%= button_to "Delete", user_post_path(@user, post), method: :delete, data: { confirm: "Are you sure?" }, class:'btn btn-outline-danger btn-sm' %>
+        </span>
+      <% end %>
+
+      <div class='d-flex justify-content-end gap-2 pb-2'>
+        <span>Comments: <%= post.comments_counter %> </span>
+        <span> Likes: <%= post.likes_counter %></span>
+      </div>
     </div>
     <p class=''><%= @post.text %></p>
     <div class='card-body border-top'> 

@@ -1,8 +1,15 @@
 <div class='row'>
   <p class='lead'><%= post.text %></p>
-  <div class='d-flex justify-content-end gap-2'>
-    <span>Comments: <%= post.comments_counter %> </span>
-    <span>&nbsp;</span>
-    <span> Likes: <%= post.likes_counter %></span>
+  <div class='d-flex justify-content-between gap-2'>
+    <% if can? :destroy, post %>
+        <span class='pb-2'>
+          <%= button_to "Delete", user_post_path(@user, post), method: :delete, data: { confirm: "Are you sure?" }, class:'btn btn-outline-danger btn-sm' %>
+        </span>
+      <% end %>
+
+      <div class='d-flex justify-content-end gap-2 pb-2'>
+        <span>Comments: <%= post.comments_counter %> </span>
+        <span> Likes: <%= post.likes_counter %></span>
+      </div>
   </div>
 </div>

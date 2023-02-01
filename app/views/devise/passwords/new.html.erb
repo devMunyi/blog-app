@@ -2,7 +2,7 @@
 
   <h2 class='text-center p-2 text-decoration-underline'>Forgot your password?</h2>
   
-  <div class='d-flex justify-content-center align-items-center'>
+  <div class='d-flex justify-content-center align-items-center auth'>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 

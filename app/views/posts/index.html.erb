@@ -4,7 +4,9 @@
   <div class='row'>
     <div class='d-flex justify-content-between align-items-center mt-4'>
       <h5>Posts List</h5>
-      <%= link_to 'Add New', new_user_post_url(@user), class: 'btn btn-primary' %>
+        <% if current_user.id == @user.id %>
+          <%= link_to 'Add New', new_user_post_url(@user), class: 'btn btn-primary' %>
+        <% end %>
     </div>
   </div>
 
@@ -12,16 +14,31 @@
     <div class='row card pt-2 pb-2 mb-3 mt-4'>
       <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
       <p><%= post.text %></p>
-      <div class='d-flex justify-content-end gap-2'>
-        <span>Comments: <%= post.comments_counter %> </span>
-        <span> Likes: <%= post.likes_counter %></span>
+      <div class='d-flex justify-content-between'>
+         <% if can? :destroy, post %>
+          <span class='pb-2'>
+            <%= button_to "Delete", user_post_path(@user, post), method: :delete, data: { confirm: "Are you sure?" }, class:'btn btn-outline-danger btn-sm' %>
+          </span>
+         <% end %>
+         
+         <div class='d-flex justify-content-end gap-2 pb-2'>
+          <span>Comments: <%= post.comments_counter %> </span>
+          <span> Likes: <%= post.likes_counter %></span>
+         </div>
       </div>
 
       <div class='container card-body border-top'>
         <h5>Comments List</h5>
 
         <%post.comments.each do |comment| %>
-          <div><%= comment.author.name %>: <%= comment.text %></div>
+          <div class='border-bottom pb-2'>
+            <div class='my-2'><%= comment.author.name %>: <%= comment.text %>  </div>
+            <% if can? :destroy, post %>
+              <span class='no-bs'>
+                <%= button_to "Delete", user_post_comment_path(@user, post, comment), method: :delete, data: { confirm: "Are you sure?" }, class:'btn btn-outline-danger btn-sm' %>
+              </span>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

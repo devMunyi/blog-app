@@ -8,27 +8,51 @@
 
   <h2 class='text-muted ml-0 pl-0'>Post Details</h2>
   <div class='row card pt-2 pb-2'>
-    <h4 class='lead'><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h4>
-    <div class='d-flex justify-content-end gap-2'>
-      <span>Comments: <%= @post.comments_counter %> </span>
-      <span> Likes: <%= @post.likes_counter %></span>
+    <div class='d-flex justify-content-between'>
+      <h4 class='lead'><%= @post.title %> by <%= link_to @post.author.name, user_path(@post.author) %></h4>
+      <div class='d-flex justify-content-end gap-2'>
+        <span>Comments: <%= @post.comments_counter %> </span>
+        <span> Likes: <%= @post.likes_counter %></span>
+      </div>
     </div>
-    <p class=''><%= @post.text %></p>
-    <div class='card-body border-top'> 
-      <%@post.comments.each do |comment| %>
-        <li><%= comment.author.name %>: <%= comment.text %></li>
+    <p class="border-top border-bottom py-2"><%= @post.text %></p>
+
+    <div class='d-flex gap-2 no-bs mb-2'>
+      <!-- comment on the post button -->
+      <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn btn-sm btn-outline-primary' %>
+
+      <!-- like post button -->
+      <%= form_with url: user_post_likes_path(@post.author, @post), method: :post do |f| %>
+        <%= f.submit 'Like', class:'btn btn-sm btn-outline-primary' %>
+      <% end %>
+
+      <!-- delete post button -->
+      <% if can? :destroy, @post %>
+        <span>
+          <%= button_to "Delete", user_post_path(@user, @post), method: :delete, data: { confirm: "Are you sure?" }, class:'btn btn-outline-danger btn-sm' %>
+        </span>
       <% end %>
     </div>
 
-    <div class='d-flex justify-content-start gap-2'>
-      <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn btn-sm btn-primary' %>
-      <%= form_with url: user_post_likes_path(@post.author, @post), method: :post do |f| %>
-        <%= f.submit 'Like', class:'btn btn-sm btn-primary' %>
+    <!-- comments list for the post -->
+    <div class='card-body border-top'> 
+      <h5>Comments List</h5>
+      <% if @post.comments.empty? %>
+        <i>No comments</i>
+      <% else %>
+        <%@post.comments.each do |comment| %>
+          <li><%= comment.author.name %>: <%= comment.text %></li>
+        <% end %>
       <% end %>
     </div>
   </div>
 
+  <!-- Go all posts of a user -->
   <div class='d-flex justify-content-center align-items-center'>
-    <%= link_to 'Back to all', user_posts_path(@user, @post) %>
+    <% if current_user.id == @user.id %>
+      <%= link_to 'All my posts', user_posts_path(@user, @post)%>
+    <% else %>
+      <%= link_to "All #{@user.name} posts", user_posts_path(@user, @post) %>
+    <% end %>
   </div>
 </div>

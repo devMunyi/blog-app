@@ -8,11 +8,11 @@ module ExceptionHandler
 
   private
 
-  def not_found_response(e)
-    json_response({ message: e.message }, :not_found)
+  def not_found_response(err)
+    json_response({ message: err.message }, :not_found)
   end
 
-  def unprocessable_entity_response(e)
-    json_response({ message: e.message }, :unprocessable_entity)
+  def unprocessable_entity_response(err)
+    json_response({ message: err.message }, :unprocessable_entity)
   end
 end

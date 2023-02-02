@@ -1,5 +1,5 @@
 class Api::PostsController < Api::ApplicationController
-  before_action :get_author, only: [:index]
+  before_action :incoming_author, only: [:index]
 
   def index
     posts = @author.posts
@@ -9,7 +9,7 @@ class Api::PostsController < Api::ApplicationController
   # callbacks method to be used by controller methods or actions
   private
 
-  def get_author
+  def incoming_author
     @author = User.find(params[:user_id])
   end
 end

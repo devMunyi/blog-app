@@ -108,6 +108,11 @@ rubocop
 - LinkedIn: [Samuel Munyi](https://www.linkedin.com/in/samuel-munyi)
 - Twitter: [munyi_sam](https://twitter.com/munyi_sam)
 
+👤 **Desta Legesse Wubishet**
+
+- GitHub: [dlwub](https://github.com/dlwub)
+- LinkedIn: [Desta Legesse](https://www.linkedin.com/in/desta-legesse-w-509844213/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>

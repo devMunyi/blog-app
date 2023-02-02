@@ -8,4 +8,13 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
     end
   end
+
+  # routes for API endpoints
+  namespace :api do 
+    resources :users do 
+      resources :posts, only: [:index] do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
 end

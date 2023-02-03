@@ -9,6 +9,21 @@ RSpec.describe 'api/endpoints', type: :request, host: 'http://localhost:3000' do
       parameter name: :user_id, in: :path, type: :string
 
       response '200', 'posts found' do
+        schema type: :array,
+          items: {
+          type: :object,
+          properties: {
+            id: { type: :integer },
+            title: { type: :string },
+            text: { type: :string },
+            comments_counter: { type: :integer },
+            likes_counter: { type: :integer },
+            author_id: { type: :integer },
+            created_at: { type: :string, format: :'date-time' },
+            updated_at: { type: :string, format: :'date-time' }
+          },
+            required: [ 'id', 'title', 'text', 'comments_counter', 'likes_counter', 'author_id']
+          }
 
         let(:user_id) { 2 }
         run_test!

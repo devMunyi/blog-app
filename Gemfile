@@ -60,6 +60,10 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # authorization/access control gem
 gem 'cancancan'
 
+# rswagger API documenting inter-related gems
+gem 'rswag-api'
+gem 'rswag-ui'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -77,6 +81,9 @@ group :development, :test do
 
   # gem to handle email confirmation on development server
   gem 'letter_opener'
+
+  # rswag
+  gem 'rswag-specs'
 end
 
 group :development do
